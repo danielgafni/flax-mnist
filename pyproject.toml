@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "flax-mnist"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Gafni <danielgafni16@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8,<3.11"
+jax = "^0.3.7"
+flax = "^0.4.1"
+tensorflow = "^2.8.0"
+optax = "^0.1.2"
+numpy = "^1.22.3"
+hydra-core = "^1.1.2"
+tensorflow-datasets = "^4.5.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.1"
+pre-commit = "^2.18.1"
+autoflake = "^1.4"
+black = "^22.3.0"
+mypy = "^0.942"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "jorenham/jax_pep503"
+url = "https://jorenham.github.io/jax_pep503/"
+secondary = true
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.venv
+  | build
+  | dist
+  )/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+src_paths = ["flax_mnist", "tests"]
+
+[tool.mypy]
+python_version = 3.8
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+files = "flax_mnist,tests"

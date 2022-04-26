@@ -1,0 +1,6 @@
+workdir: ???
+learning_rate: 0.1
+momentum: 0.9
+batch_size: 128
+num_epochs: 10
+device: cpu
